@@ -1,8 +1,8 @@
-package online.agatstudio.domain;
+package org.javaguru.java1.student.project_1_fraud_detector.frauddetector.domain;
 
 import java.util.List;
 
-import online.agatstudio.repository.FraudstersDB;
+import org.javaguru.java1.student.project_1_fraud_detector.frauddetector.repository.FraudstersDB;
 
 class FraudDetector {
 

@@ -1,4 +1,4 @@
-package online.agatstudio.domain;
+package org.javaguru.java1.student.project_1_fraud_detector.frauddetector.domain;
 
 class Trader {
 
