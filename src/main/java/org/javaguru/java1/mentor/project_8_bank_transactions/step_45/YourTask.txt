@@ -1,0 +1,82 @@
+У классов EntertainmentExpensesCalculator
+и FoodExpensesCalculator очень много общего.
+
+Например полностью одинаковые методы:
+- filterWithdrawalTransactions()
+- sumTransactionAmount().
+
+    private List<Transaction> filterWithdrawalTransactions(Transaction[] transactions) {
+        List<Transaction> withdrawalTransactions = new ArrayList<>();
+        for (Transaction transaction : transactions) {
+            if (transaction.isWithdrawal()) {
+                withdrawalTransactions.add(transaction);
+            }
+        }
+        return withdrawalTransactions;
+    }
+
+
+    private int sumTransactionAmount(List<Transaction> transactions) {
+        int entertainmentExpensesAmount = 0;
+        for (Transaction transaction : transactions) {
+            entertainmentExpensesAmount = entertainmentExpensesAmount + transaction.getAmount();
+        }
+        return entertainmentExpensesAmount;
+    }
+
+Очевидно, что дублировать эти методы из класса в класс не имеет смысла.
+
+Избавиться от повторения кода в нашем случае можно двумя способами:
+- при помощи наследования;
+- при помощи композиции.
+
+Давайте рассмотрим оба варианта в отдельности.
+
+Для того, что бы избавиться от повторения кода с использованием наследования
+нужно создать родительский класс и вынести в него всю функциональность
+которая дублируется в классах. А потом просто наследовать свои классы
+от только что созданного родительского класса.
+
+Такой приём (с использованием наследования) логичен и имеет смысл применять,
+когда классы потомки укладываются в какую то общую иерархию. Например, в нашем
+случае все эти классы (EntertainmentExpensesCalculator, FoodExpensesCalculator и т.д.)
+описывают алгоритм расчёта суммы расходов для каждой из категорий.
+В таком случае имеет смысл создать иерархию алгоритмов расчета суммы расходов.
+Но если эти классы делали бы совершенно разные вещи то смысл в иерархии наследования
+не было бы никакого. Иерархия наследования описывает похожие вещи, а не разные.
+
+Для иерархии наследования алгоритмов расчёта суммы расходов для
+каждой из категорий создадим родительский класс ExpensesCalculator
+и вынесем в него общие методы:
+
+class ExpensesCalculator {
+
+    // protected - для того, что бы этот метод можно было вызвать из классов потомков
+    protected List<Transaction> filterWithdrawalTransactions(Transaction[] transactions) {
+        List<Transaction> withdrawalTransactions = new ArrayList<>();
+        for (Transaction transaction : transactions) {
+            if (transaction.isWithdrawal()) {
+                withdrawalTransactions.add(transaction);
+            }
+        }
+        return withdrawalTransactions;
+    }
+
+    // protected - для того, что бы этот метод можно было вызвать из классов потомков
+    protected int sumTransactionAmount(List<Transaction> transactions) {
+        int expensesAmount = 0;
+        for (Transaction transaction : transactions) {
+            expensesAmount = expensesAmount + transaction.getAmount();
+        }
+        return expensesAmount;
+    }
+
+}
+
+Унаследуйте классы EntertainmentExpensesCalculator и FoodExpensesCalculator
+от класса ExpensesCalculator, удалите из потомков методы
+- filterWithdrawalTransactions()
+- sumTransactionAmount()
+и вызывайте эти методы из родительского класса.
+
+Убедитесь, что после сделанных вами изменений тесты по-прежнему проходят.

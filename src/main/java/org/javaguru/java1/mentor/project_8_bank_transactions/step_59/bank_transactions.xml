@@ -1,0 +1,23 @@
+<TrxList>
+    <TrxSet>
+        <Type>INCOMING</Type>
+        <BookDate>2020-09-10</BookDate>
+        <AccAmt>1000.00</AccAmt>
+        <ExpenseCategory></ExpenseCategory>
+        <PmtInfo>Зарплата Proof IT за 2020 август</PmtInfo>
+    </TrxSet>
+    <TrxSet>
+        <Type>OUTGOING</Type>
+        <BookDate>2020-09-10</BookDate>
+        <AccAmt>460.84</AccAmt>
+        <ExpenseCategory>LOANS</ExpenseCategory>
+        <PmtInfo>Проценты по кредиту 10.03.2017. Номер кредита Nr.2017-777-HK</PmtInfo>
+    </TrxSet>
+    <TrxSet>
+        <Type>OUTGOING</Type>
+        <BookDate>2020-09-10</BookDate>
+        <AccAmt>7.84</AccAmt>
+        <ExpenseCategory>FOOD</ExpenseCategory>
+        <PmtInfo>Оплата картой: 477777......9777. Владелец: Вася Пупкин. Покупка - KFC</PmtInfo>
+    </TrxSet>
+</TrxList>

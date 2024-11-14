@@ -1,0 +1,17 @@
+Пример создания родительского класса ExpensesCalculator вы
+можете найти в коде.
+
+Можно ли сократить код в классах
+EntertainmentExpensesCalculator
+FoodExpensesCalculator
+еще больше?
+
+Чем отличается метод filterFoodTransactions()
+от filterEntertainmentTransactions()?
+
+Эти два метода filterFoodTransactions() от filterEntertainmentTransactions()
+отличаются только тем, что один для фильтрации транзакций использует
+ExpenseCategory.FOOD, а другой ExpenseCategory.ENTERTAINMENT.
+
+Придумайте способ написать более универсальный код для
+фильтрации транзакций по типам расходов!

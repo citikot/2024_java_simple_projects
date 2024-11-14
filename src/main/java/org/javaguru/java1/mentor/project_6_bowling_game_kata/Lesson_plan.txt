@@ -1,0 +1,1 @@
+Цель - рассмотреть TDD (Test Driven Development) на практике.

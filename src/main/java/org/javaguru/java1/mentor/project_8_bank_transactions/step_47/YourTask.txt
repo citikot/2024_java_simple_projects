@@ -1,0 +1,8 @@
+В классе ExpensesCalculator вы найдёте реализацию метода
+filterTransactionsByExpenseCategory().
+
+Измените классы FoodExpensesCalculator и EntertainmentExpensesCalculator
+так, что бы они использовали метод filterTransactionsByExpenseCategory()
+из родительского класса.
+
+Убедитесь, что после сделанных вами изменений тесты по-прежнему проходят.

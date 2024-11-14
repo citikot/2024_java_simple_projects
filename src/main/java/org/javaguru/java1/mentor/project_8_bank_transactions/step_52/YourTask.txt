@@ -1,0 +1,5 @@
+В коде вы найдёте реализации классов:
+- GamblingExpensesCalculator;
+- CommunalPaymentsExpensesCalculator;
+- OthersExpensesCalculator;
+- LoansExpensesCalculator.

@@ -1,0 +1,5 @@
+Формализация задачи
+UI - User Interface
+BL - Business Logic
+Application - приложение
+Рефакторинг
