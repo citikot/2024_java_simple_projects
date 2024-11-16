@@ -1,4 +1,4 @@
-package org.javaguru.java1.mentor.project_1_fraud_detector.step_2.frauddetector;
+package org.javaguru.java1.mentor.project_1_fraud_detector.step_2_DONE.frauddetector;
 
 class FraudDetector {
 
