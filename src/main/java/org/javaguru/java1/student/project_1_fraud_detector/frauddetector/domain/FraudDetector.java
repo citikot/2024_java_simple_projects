@@ -9,10 +9,9 @@ class FraudDetector {
     FraudstersDB fraudstersDB = new FraudstersDB();
 
     boolean isFraud(Transaction transaction) {
-        List<String> fraudstersNames = fraudstersDB.getFraudstersNames();
-        boolean condition1 = fraudstersNames.contains(transaction.getTrader().getFullName());
-        boolean fullCheck = condition1;
-        return fullCheck;
+        List<Trader> fraudstersNames = fraudstersDB.getFraudstersNames();
+        return fraudstersNames.stream().
+                anyMatch(trader -> trader.getFullName().equals(transaction.getTrader().getFullName()));
     }
 
 }

@@ -1,12 +1,14 @@
 package org.javaguru.java1.student.project_1_fraud_detector.frauddetector.repository;
 
+import org.javaguru.java1.student.project_1_fraud_detector.frauddetector.domain.Trader;
+
 import java.util.List;
 
 public class FraudstersDB {
 
-    List<String> fraudstersNames = List.of("Pokemon");
+    List<Trader> fraudstersNames = List.of(new Trader("Pokemon", "Tokyo"));
 
-    public List<String> getFraudstersNames() {
+    public List<Trader> getFraudstersNames() {
         return fraudstersNames;
     }
 }
