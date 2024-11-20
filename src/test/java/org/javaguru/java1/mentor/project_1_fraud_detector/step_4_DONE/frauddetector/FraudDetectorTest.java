@@ -1,4 +1,4 @@
-package org.javaguru.java1.mentor.project_1_fraud_detector.step_4.frauddetector;
+package org.javaguru.java1.mentor.project_1_fraud_detector.step_4_DONE.frauddetector;
 
 import org.junit.jupiter.api.Test;
 
