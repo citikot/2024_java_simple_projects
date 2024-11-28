@@ -8,6 +8,8 @@ public class FraudstersDB {
 
     public static final int FRAUD_TRANSACTION_AMOUNT_THRESHOLD = 1_000_000;
 
+    List<String> prohibitedCities = List.of("Sydney");
+
     List<Trader> fraudstersNames = List.of(
             new Trader("Pokemon", "Tokyo"),
             new Trader("Jess Alba", "Hollywood")
@@ -15,5 +17,9 @@ public class FraudstersDB {
 
     public List<Trader> getFraudstersNames() {
         return fraudstersNames;
+    }
+
+    public List<String> getProhibitedCities() {
+        return prohibitedCities;
     }
 }

@@ -26,13 +26,15 @@ class FraudDetectorTest {
                 new Trader("Jess Alba", "Hollywood"),
                 new Trader("Emily Radkovsky", "Pasadena"),
                 new Trader("Dominic Torrent", "Seattle"),
-                new Trader("Pokemon", "Tokyo")
+                new Trader("Pokemon", "Tokyo"),
+                new Trader("Gerard Butler", "Sydney"),
+                new Trader("Joe Peshi", "Sydney")
         );
 
         chekedRulesFailed = List.of(false, true, false, true); // some transactions are fraudulent
         chekedRulesPassed= List.of(false, false, false, false); // all transactions are good
 
-        List<Integer> transactionAmounts = List.of( 1000, 5000, 1_100_000, 1, 50000, 1_999_999, 1);
+        List<Integer> transactionAmounts = List.of( 1000, 5000, 1_100_000, 1, 50000, 1_999_999, 1, 150, 800);
 
         for (int i = 0; i < traders.size(); i++) {
             rawTransactions.add(new Transaction(traders.get(i), transactionAmounts.get(i)));
@@ -86,6 +88,32 @@ class FraudDetectorTest {
 
         // when
         boolean isFraudulent = fraudDetector.isFraudByTransactionAmount(transaction);
+
+        // then
+        assertFalse(isFraudulent);
+    }
+
+    @Test
+    void testFraudulentTransactionByCity() {
+        // given
+        Trader trader = new Trader("Ivan Bredford", "Sydney");
+        Transaction transaction = new Transaction(trader, 1_000);
+
+        // when
+        boolean isFraudulent = fraudDetector.isFraudByCity(transaction);
+
+        // then
+        assertTrue(isFraudulent);
+    }
+
+    @Test
+    void testNotFraudulentTransactionByCity() {
+        // given
+        Trader trader = new Trader("Ivan Bredford", "Rammstein");
+        Transaction transaction = new Transaction(trader, 1_000);
+
+        // when
+        boolean isFraudulent = fraudDetector.isFraudByCity(transaction);
 
         // then
         assertFalse(isFraudulent);

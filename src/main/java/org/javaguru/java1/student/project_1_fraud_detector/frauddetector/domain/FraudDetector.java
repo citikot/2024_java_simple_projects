@@ -20,8 +20,15 @@ class FraudDetector {
         List<Boolean> checkedRules = new ArrayList<>();
         checkedRules.add(isFraudByTraderName(transaction));
         checkedRules.add(isFraudByTransactionAmount(transaction));
+        checkedRules.add(isFraudByCity(transaction));
         return checkFraudRules(checkedRules);
     }
+
+    boolean isFraudByCity(Transaction transaction) {
+        List<String> prohibitedCities = fraudstersDB.getProhibitedCities();
+        return prohibitedCities.stream().anyMatch(city -> city.equals(transaction.trader().city()));
+    }
+
     boolean isFraudByTraderName(Transaction transaction) {
         List<Trader> fraudstersNames = fraudstersDB.getFraudstersNames();
         return fraudstersNames.stream().anyMatch(trader -> trader.fullName().equals(transaction.trader().fullName()));
