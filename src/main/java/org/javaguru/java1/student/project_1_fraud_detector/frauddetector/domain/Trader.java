@@ -5,4 +5,4 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public record Trader(String fullName, String city) {}
+public record Trader(String fullName, String city, String country) {}
