@@ -5,5 +5,5 @@ import lombok.Setter;
 
 @Getter
 @Setter
-record Transaction(Trader trader, int amount) {}
+public record Transaction(Trader trader, int amount) {}
 

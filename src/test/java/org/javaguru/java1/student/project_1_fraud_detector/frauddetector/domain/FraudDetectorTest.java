@@ -1,5 +1,9 @@
 package org.javaguru.java1.student.project_1_fraud_detector.frauddetector.domain;
 
+import org.javaguru.java1.student.project_1_fraud_detector.frauddetector.domain.rules.City;
+import org.javaguru.java1.student.project_1_fraud_detector.frauddetector.domain.rules.Country;
+import org.javaguru.java1.student.project_1_fraud_detector.frauddetector.domain.rules.TraderName;
+import org.javaguru.java1.student.project_1_fraud_detector.frauddetector.domain.rules.TransactionAmount;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -49,7 +53,7 @@ class FraudDetectorTest {
         Transaction transaction = new Transaction(trader, 10000);
 
         // when
-        boolean isFraudster = fraudDetector.isFraudByTraderName(transaction);
+        boolean isFraudster = new TraderName().isFraud(transaction);
 
         // then
         assertTrue(isFraudster);
@@ -62,7 +66,7 @@ class FraudDetectorTest {
         Transaction transaction = new Transaction(trader, 1000);
 
         // when
-        boolean isFraudster = fraudDetector.isFraudByTraderName(transaction);
+        boolean isFraudster = new TraderName().isFraud(transaction);
 
         // then
         assertFalse(isFraudster);
@@ -75,7 +79,7 @@ class FraudDetectorTest {
         Transaction transaction = new Transaction(trader, 1_000_000_000);
 
         // when
-        boolean isFraudulent = fraudDetector.isFraudByTransactionAmount(transaction);
+        boolean isFraudulent = new TransactionAmount().isFraud(transaction);
 
         // then
         assertTrue(isFraudulent);
@@ -88,7 +92,7 @@ class FraudDetectorTest {
         Transaction transaction = new Transaction(trader, 1_000);
 
         // when
-        boolean isFraudulent = fraudDetector.isFraudByTransactionAmount(transaction);
+        boolean isFraudulent = new TransactionAmount().isFraud(transaction);
 
         // then
         assertFalse(isFraudulent);
@@ -101,7 +105,7 @@ class FraudDetectorTest {
         Transaction transaction = new Transaction(trader, 1_000);
 
         // when
-        boolean isFraudulent = fraudDetector.isFraudByCity(transaction);
+        boolean isFraudulent = new City().isFraud(transaction);
 
         // then
         assertTrue(isFraudulent);
@@ -114,7 +118,7 @@ class FraudDetectorTest {
         Transaction transaction = new Transaction(trader, 1_000);
 
         // when
-        boolean isFraudulent = fraudDetector.isFraudByCity(transaction);
+        boolean isFraudulent = new City().isFraud(transaction);
 
         // then
         assertFalse(isFraudulent);
@@ -127,7 +131,7 @@ class FraudDetectorTest {
         Transaction transaction = new Transaction(trader, 1_000);
 
         // when
-        boolean isFraudulent = fraudDetector.isFraudByCountry(transaction);
+        boolean isFraudulent = new Country().isFraud(transaction);
 
         // then
         assertTrue(isFraudulent);
@@ -140,7 +144,7 @@ class FraudDetectorTest {
         Transaction transaction = new Transaction(trader, 1_000);
 
         // when
-        boolean isFraudulent = fraudDetector.isFraudByCountry(transaction);
+        boolean isFraudulent = new Country().isFraud(transaction);
 
         // then
         assertFalse(isFraudulent);
