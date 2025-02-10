@@ -21,7 +21,6 @@ dependencies {
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.34'
 
-
     annotationProcessor("org.immutables:value:2.9.2")
 
     testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
