@@ -1,4 +1,4 @@
-package org.javaguru.java1.mentor.project_2_geometry_shape.step_3.geometry.shapes;
+package org.javaguru.java1.student.project_2.shapes;
 
 abstract class Shape {
 
@@ -9,6 +9,7 @@ abstract class Shape {
     }
 
     abstract double calculateArea();
+
     abstract double calculatePerimeter();
 
 }

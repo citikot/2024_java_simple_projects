@@ -1,21 +1,25 @@
-package org.javaguru.java1.mentor.project_2_geometry_shape.step_5.geometry.shapes;
+package org.javaguru.java1.student.project_2.shapes;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CircleTest {
 
+    Circle circle;
+
+    @BeforeEach
+    void init() {
+        circle = new Circle("A", 1);
+    }
     @Test
-    public void shouldCalculateArea() {
-        Circle circle = new Circle("A", 1);
+    void shouldCalculateArea() {
         assertEquals(circle.calculateArea(), 3.14, 0.01);
     }
 
     @Test
-    public void shouldCalculatePerimeter() {
-        Circle circle = new Circle("A", 1);
+    void shouldCalculatePerimeter() {
         assertEquals(circle.calculatePerimeter(), 6.28, 0.01);
     }
-
 }
