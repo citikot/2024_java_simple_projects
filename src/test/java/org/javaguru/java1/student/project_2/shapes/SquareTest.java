@@ -5,22 +5,22 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class CircleTest {
+public class SquareTest {
 
-    Circle circle;
+    Square square;
 
     @BeforeEach
     void init() {
-        circle = new Circle("A", 1);
+        square = new Square("Square", 10);
     }
 
     @Test
     void shouldCalculateArea() {
-        assertEquals(circle.calculateArea(), 3.14, 0.01);
+        assertEquals(100, square.calculateArea(), 0.01);
     }
 
     @Test
     void shouldCalculatePerimeter() {
-        assertEquals(circle.calculatePerimeter(), 6.28, 0.01);
+        assertEquals(40, square.calculatePerimeter(), 0.01);
     }
 }
