@@ -6,18 +6,18 @@ public class Circle extends Shape {
 
     private double radius;
 
-    Circle(String title, double radius) {
+    public Circle(String title, double radius) {
         super(title);
         this.radius = radius;
     }
 
     @Override
-    double calculateArea() {
+    public double calculateArea() {
         return PI * Math.pow(radius, 2);
     }
 
     @Override
-    double calculatePerimeter() {
+    public double calculatePerimeter() {
         return 2 * Math.PI * radius;
     }
 }

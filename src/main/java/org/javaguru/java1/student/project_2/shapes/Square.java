@@ -10,12 +10,12 @@ public class Square extends Shape {
     }
 
     @Override
-    double calculateArea() {
+    public double calculateArea() {
         return Math.pow(side, 2);
     }
 
     @Override
-    double calculatePerimeter() {
+    public double calculatePerimeter() {
         return 4 * side;
     }
 }

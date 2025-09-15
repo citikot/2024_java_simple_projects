@@ -34,4 +34,20 @@ public class ShapeUtil {
     private int getRandomNumber() {
         return random.nextInt(3); // Генерирует числа от 0 до 2 включительно
     }
+
+    public double calculateArea(Shape[] shapes) {
+        double sum = 0;
+        for (Shape shape : shapes) {
+            sum += shape.calculateArea();
+        }
+        return sum;
+    }
+
+    public double calculatePerimeter(Shape[] shapes) {
+        double sum = 0;
+        for (Shape shape : shapes) {
+            sum += shape.calculatePerimeter();
+        }
+        return sum;
+    }
 }
