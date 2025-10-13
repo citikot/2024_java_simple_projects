@@ -1,7 +1,8 @@
-package org.javaguru.java1.student.project3;
+package org.javaguru.java1.student.project_3;
 
-import org.javaguru.java1.student.project3.repository.AppleRepository;
+import org.javaguru.java1.student.project_3.repository.AppleRepository;
 
+@SuppressWarnings("java:S106")
 public class AppleWarehouse {
 
     static AppleRepository appleRepository = new AppleRepository();

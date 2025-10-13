@@ -1,6 +1,6 @@
-package org.javaguru.java1.student.project3.repository;
+package org.javaguru.java1.student.project_3.repository;
 
-import org.javaguru.java1.student.project3.domain.Apple;
+import org.javaguru.java1.student.project_3.domain.Apple;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AppleRepositoryTest {
 
-    private AppleRepository repository = new AppleRepository();
+    private final AppleRepository repository = new AppleRepository();
     List<Apple> apples = new ArrayList<>();
 
     @BeforeEach
