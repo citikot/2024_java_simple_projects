@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ShapeUtilTest {
 
     @Test
-    void calculateArea() {
+    void shouldCalculateTotalArea() {
 
         //given
         ShapeUtil util = new ShapeUtil();
@@ -17,14 +17,14 @@ class ShapeUtilTest {
         Shape[] shapes = {circle, rectangle, square};
 
         // when
-        double area = util.calculateArea(shapes);
+        double area = util.calculateTotalArea(shapes);
 
         // then
         assertEquals(5.14, area, 0.1);
     }
 
     @Test
-    void calculatePerimeter() {
+    void shouldCalculateTotalPerimeter() {
         //given
         ShapeUtil util = new ShapeUtil();
         Circle circle = new Circle("circle", 1);
@@ -33,7 +33,7 @@ class ShapeUtilTest {
         Shape[] shapes = {circle, rectangle, square};
 
         // when
-        double area = util.calculatePerimeter(shapes);
+        double area = util.calculateTotalPerimeter(shapes);
 
         // then
         assertEquals(14.28, area, 0.1);
