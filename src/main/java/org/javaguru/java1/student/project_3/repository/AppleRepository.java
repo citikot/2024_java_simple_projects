@@ -20,6 +20,18 @@ public class AppleRepository {
                 .toList();
     }
 
+    public List<Apple> getHeavyApples(int weight) {
+        return getAllApples().stream()
+                .filter(item -> item.weight() >= weight)
+                .toList();
+    }
+
+    public List<Apple> getLightApples(int weight) {
+        return getAllApples().stream()
+                .filter(item -> item.weight() < weight)
+                .toList();
+    }
+
     public void addApple(Apple apple) {
         apples.add(apple);
     }
