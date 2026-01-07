@@ -8,32 +8,20 @@ import java.util.List;
 public class AppleService {
 
     private final AppleRepository appleRepository = new AppleRepository();
-    private final int WEIGHT_THRESHOLD = 150;
 
     public void run() {
 
-        List<Apple> apples = appleRepository.getAllApples();
-        apples.forEach(System.out::println);
-
-        System.out.println("------- HEAVY APPLES -------");
-        apples = appleRepository.getHeavyApples(WEIGHT_THRESHOLD);
-        apples.forEach(System.out::println);
-
-        System.out.println("------- LIGHT APPLES -------");
-        apples = appleRepository.getLightApples(WEIGHT_THRESHOLD);
-        apples.forEach(System.out::println);
+        System.out.println(findApples(new SearchHeavyApple()));
+        System.out.println(findApples(new SearchLightApple()));
+        System.out.println(findApples(new SearchGreenApple()));
+        System.out.println(findApples(new SearchRedApple()));
+        System.out.println(findApples(new SearchGreenHeavyApple()));
 
     }
 
-    public List<Apple> getApplesByColor(String color) {
-        return appleRepository.getApplesByColor(color);
-    }
-
-    public List<Apple> getHeavyApples(int weight) {
-        return appleRepository.getHeavyApples(weight);
-    }
-
-    public List<Apple> getLightApples(int weight) {
-        return appleRepository.getHeavyApples(weight);
+    public List<Apple> findApples(AppleSearchCriteria searchCriteria) {
+        return appleRepository.getAllApples().stream()
+                .filter(searchCriteria::test)
+                .toList();
     }
 }
